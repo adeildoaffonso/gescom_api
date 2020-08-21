@@ -21,7 +21,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
         public List<agenciador_tb> ListarAgenciador()
         {
             List<agenciador_tb> retorno = new List<agenciador_tb>();
-
+            //antigo.
             var query = (from ag in db.agenciador_tb
                          join pe in db.pessoa_tb on ag.pessoa_id equals pe.pessoa_id
                          select new
