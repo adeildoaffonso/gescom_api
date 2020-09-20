@@ -52,6 +52,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
             }
 
             db.Entry(segurado_tb).State = EntityState.Modified;
+            db.Entry(segurado_tb.pessoa_tb).State = EntityState.Modified;
 
             try
             {

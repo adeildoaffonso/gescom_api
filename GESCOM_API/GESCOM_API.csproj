@@ -215,6 +215,11 @@
     <Compile Include="Controllers\dadosBasicos\CorretorController.cs" />
     <Compile Include="Controllers\dadosBasicos\SeguradoController.cs" />
     <Compile Include="Controllers\dadosBasicos\SeguradoraController.cs" />
+    <Compile Include="Migrations\202008302339463_InitialCreate.cs" />
+    <Compile Include="Migrations\202008302339463_InitialCreate.Designer.cs">
+      <DependentUpon>202008302339463_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\agenciador_tb.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -351,6 +356,11 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202008302339463_InitialCreate.resx">
+      <DependentUpon>202008302339463_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

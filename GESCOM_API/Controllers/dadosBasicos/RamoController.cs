@@ -19,9 +19,9 @@ namespace GESCOM_API.Controllers
 
         // GET: api/Ramo
         [HttpGet]
-        public IQueryable<ramo_tb> ListarRamo()
+        public List<ramo_tb> ListarRamo()
         {
-            return db.ramo_tb;
+            return db.ramo_tb.ToList<ramo_tb>();
         }
 
         // GET: api/Ramo/5
@@ -38,8 +38,10 @@ namespace GESCOM_API.Controllers
             return Ok(ramo_tb);
         }
 
+
         // PUT: api/Ramo/5
         [ResponseType(typeof(void))]
+        [HttpPut]
         public IHttpActionResult Atualizar(int id, ramo_tb ramo_tb)
         {
             if (!ModelState.IsValid)

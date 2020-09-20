@@ -51,12 +51,6 @@ namespace GESCOM_API.Models
                 .HasForeignKey(e => e.corretor_id)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<corretor_tb>()
-                .HasMany(e => e.recibo_comissao_detalhe_tb1)
-                .WithRequired(e => e.corretor_tb1)
-                .HasForeignKey(e => e.corretor_id)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<cotacao_tb>()
                 .Property(e => e.codigo)
                 .IsUnicode(false);
@@ -141,12 +135,6 @@ namespace GESCOM_API.Models
             modelBuilder.Entity<recibo_comissao_tb>()
                 .HasMany(e => e.recibo_comissao_detalhe_tb)
                 .WithRequired(e => e.recibo_comissao_tb)
-                .HasForeignKey(e => e.recibo_comissao_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<recibo_comissao_tb>()
-                .HasMany(e => e.recibo_comissao_detalhe_tb1)
-                .WithRequired(e => e.recibo_comissao_tb1)
                 .HasForeignKey(e => e.recibo_comissao_id)
                 .WillCascadeOnDelete(false);
 

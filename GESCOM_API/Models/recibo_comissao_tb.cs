@@ -14,7 +14,6 @@ namespace GESCOM_API.Models
         {
             recibo_agenciamento_detalhe_tb = new HashSet<recibo_agenciamento_detalhe_tb>();
             recibo_comissao_detalhe_tb = new HashSet<recibo_comissao_detalhe_tb>();
-            recibo_comissao_detalhe_tb1 = new HashSet<recibo_comissao_detalhe_tb>();
         }
 
         [Key]
@@ -37,8 +36,5 @@ namespace GESCOM_API.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<recibo_comissao_detalhe_tb> recibo_comissao_detalhe_tb { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<recibo_comissao_detalhe_tb> recibo_comissao_detalhe_tb1 { get; set; }
     }
 }

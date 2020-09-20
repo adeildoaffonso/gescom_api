@@ -23,6 +23,36 @@ namespace GESCOM_API.Controllers.dadosBasicos
             return db.corretor_tb;
         }
 
+        // GET: api/Corretor
+        [HttpGet]
+        public List<corretor_tb> Listar()
+        {
+            var query = (from co in db.corretor_tb
+                         join pe in db.pessoa_tb on co.pessoa_id equals pe.pessoa_id
+                         select new
+                         {
+                             corretor_id = co.corretor_id
+                             ,pessoa_id = pe.pessoa_id
+                             ,nome = pe.nome
+                             ,cpf_cnpj = pe.cpf_cnpj
+                             ,email = pe.email
+                             ,tipo_pessoa = pe.tipo_pessoa
+                         }).ToList();
+
+            List<corretor_tb> retorno = query.Select(p => new corretor_tb
+            {
+                corretor_id = p.corretor_id,
+                pessoa_tb = new pessoa_tb
+                {
+                    pessoa_id = p.pessoa_id,
+                    email = p.email,
+                    cpf_cnpj = p.cpf_cnpj,
+                    nome = p.nome
+                }
+            }).ToList<corretor_tb>();
+            return retorno;
+        }
+
         // GET: api/Corretor/5
         [ResponseType(typeof(corretor_tb))]
         [HttpGet]
@@ -51,7 +81,8 @@ namespace GESCOM_API.Controllers.dadosBasicos
 
         // PUT: api/Corretor/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult Alterar(int id, corretor_tb corretor_tb)
+        [HttpPut]
+        public IHttpActionResult Atualizar(int id, corretor_tb corretor_tb)
         {
             if (!ModelState.IsValid)
             {
@@ -64,6 +95,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
             }
 
             db.Entry(corretor_tb).State = EntityState.Modified;
+            db.Entry(corretor_tb.pessoa_tb).State = EntityState.Modified;
 
             try
             {

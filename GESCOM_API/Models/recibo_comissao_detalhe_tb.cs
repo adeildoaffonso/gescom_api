@@ -26,10 +26,6 @@ namespace GESCOM_API.Models
 
         public virtual corretor_tb corretor_tb { get; set; }
 
-        public virtual corretor_tb corretor_tb1 { get; set; }
-
         public virtual recibo_comissao_tb recibo_comissao_tb { get; set; }
-
-        public virtual recibo_comissao_tb recibo_comissao_tb1 { get; set; }
     }
 }

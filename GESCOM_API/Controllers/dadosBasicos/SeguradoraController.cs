@@ -39,6 +39,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
 
         // PUT: api/Seguradora/5
         [ResponseType(typeof(void))]
+        [HttpPut]
         public IHttpActionResult Atualizar(int id, seguradora_tb seguradora_tb)
         {
             if (!ModelState.IsValid)
@@ -52,6 +53,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
             }
 
             db.Entry(seguradora_tb).State = EntityState.Modified;
+            db.Entry(seguradora_tb.pessoa_tb).State = EntityState.Modified;
 
             try
             {
@@ -74,6 +76,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
 
         // POST: api/Seguradora
         [ResponseType(typeof(seguradora_tb))]
+        [HttpPost]
         public IHttpActionResult Incluir(seguradora_tb seguradora_tb)
         {
             if (!ModelState.IsValid)
@@ -89,6 +92,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
 
         // DELETE: api/Seguradora/5
         [ResponseType(typeof(seguradora_tb))]
+        [HttpDelete]
         public IHttpActionResult Remover(int id)
         {
             seguradora_tb seguradora_tb = db.seguradora_tb.Find(id);

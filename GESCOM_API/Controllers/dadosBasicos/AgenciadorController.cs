@@ -21,7 +21,6 @@ namespace GESCOM_API.Controllers.dadosBasicos
         public List<agenciador_tb> ListarAgenciador()
         {
             List<agenciador_tb> retorno = new List<agenciador_tb>();
-            //antigo.
             var query = (from ag in db.agenciador_tb
                          join pe in db.pessoa_tb on ag.pessoa_id equals pe.pessoa_id
                          select new
@@ -76,6 +75,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
 
         // PUT: api/Agenciador/5
         [ResponseType(typeof(void))]
+        [HttpPut]
         public IHttpActionResult Atualizar(int id, agenciador_tb agenciador_tb)
         {
             if (!ModelState.IsValid)
@@ -89,6 +89,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
             }
 
             db.Entry(agenciador_tb).State = EntityState.Modified;
+            db.Entry(agenciador_tb.pessoa_tb).State = EntityState.Modified;
 
             try
             {
@@ -111,6 +112,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
 
         // POST: api/Agenciador
         [ResponseType(typeof(agenciador_tb))]
+        [HttpPost]
         public IHttpActionResult Incluir(agenciador_tb agenciador_tb)
         {
             if (!ModelState.IsValid)
@@ -126,6 +128,7 @@ namespace GESCOM_API.Controllers.dadosBasicos
 
         // DELETE: api/Agenciador/5
         [ResponseType(typeof(agenciador_tb))]
+        [HttpDelete]
         public IHttpActionResult Remover(int id)
         {
             agenciador_tb agenciador_tb = db.agenciador_tb.Find(id);
