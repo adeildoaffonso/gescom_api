@@ -211,10 +211,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\dadosBasicos\AgenciadorController.cs" />
-    <Compile Include="Controllers\dadosBasicos\ComissaoController.cs" />
+    <Compile Include="Controllers\processo\ComissaoController.cs" />
     <Compile Include="Controllers\dadosBasicos\CorretorController.cs" />
     <Compile Include="Controllers\dadosBasicos\SeguradoController.cs" />
     <Compile Include="Controllers\dadosBasicos\SeguradoraController.cs" />
+    <Compile Include="Controllers\processo\CotacaoController.cs" />
+    <Compile Include="Controllers\processo\PropostaController.cs" />
     <Compile Include="Migrations\202008302339463_InitialCreate.cs" />
     <Compile Include="Migrations\202008302339463_InitialCreate.Designer.cs">
       <DependentUpon>202008302339463_InitialCreate.cs</DependentUpon>

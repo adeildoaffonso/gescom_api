@@ -18,13 +18,6 @@ namespace GESCOM_API.Controllers.dadosBasicos
 
         // GET: api/Corretor
         [HttpGet]
-        public IQueryable<corretor_tb> ListarTodos()
-        {
-            return db.corretor_tb;
-        }
-
-        // GET: api/Corretor
-        [HttpGet]
         public List<corretor_tb> Listar()
         {
             var query = (from co in db.corretor_tb
@@ -37,11 +30,13 @@ namespace GESCOM_API.Controllers.dadosBasicos
                              ,cpf_cnpj = pe.cpf_cnpj
                              ,email = pe.email
                              ,tipo_pessoa = pe.tipo_pessoa
+                             ,codigo_susep = co.codigo_susep
                          }).ToList();
 
             List<corretor_tb> retorno = query.Select(p => new corretor_tb
             {
                 corretor_id = p.corretor_id,
+                codigo_susep = p.codigo_susep,
                 pessoa_tb = new pessoa_tb
                 {
                     pessoa_id = p.pessoa_id,

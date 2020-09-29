@@ -10,7 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using GESCOM_API.Models;
 
-namespace GESCOM_API.Controllers.dadosBasicos
+namespace GESCOM_API.Controllers.processo
 {
     public class ComissaoController : ApiController
     {
